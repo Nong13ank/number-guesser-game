@@ -1,11 +1,17 @@
+import random
+
+def get_player_guess():
+    while True:
+        try:
+            guess = int(input("Enter your guess (1-100): "))
+            if 1 <= guess <= 100:
+                return guess
+            else:
+                print("Please enter a number between 1 and 100.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
 def check_guess(secret_number, player_guess):
-    """
-    Task for Student 2:
-    1. Compare the player's guess with the secret number.
-    2. If the guess is correct, return the string "correct".
-    3. If the guess is too high, return the string "high".
-    4. If the guess is too low, return the string "low".
-    """
     if player_guess == secret_number:
         return "correct"
     elif player_guess > secret_number:
@@ -14,9 +20,6 @@ def check_guess(secret_number, player_guess):
         return "low"
 
 def play_game():
-    """
-    The main function to run the game.
-    """
     print("--- Welcome to the Number Guessing Game! ---")
     print("I'm thinking of a number between 1 and 100.")
 
